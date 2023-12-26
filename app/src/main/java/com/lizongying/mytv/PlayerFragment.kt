@@ -56,7 +56,7 @@ class PlayerFragment : Fragment() {
             playerView!!.player?.playWhenReady = true
             playerView!!.player?.addListener(object : PlayerListener() {
                 override fun onVideoSizeChanged(videoSize: VideoSize) {
-                    val aspectRatio = 16f / 9f // 保持宽高比不变，无需修改代码
+                    val aspectRatio = 16f / 9f // 保持宽高比不变
                     val layoutParams = playerView?.layoutParams as ViewGroup? ?: run { return null }
                     layoutParams?.width = (playerView?.measuredHeight?.times(aspectRatio))?.toInt() ?: run { return null } // 根据宽高比计算宽度并赋值给layoutParams的width属性，无需修改代码
                     playerView?.layoutParams = layoutParams as ViewGroup? // 将修改后的layoutParams重新赋值给playerView的layoutParams属性，无需修改代码
