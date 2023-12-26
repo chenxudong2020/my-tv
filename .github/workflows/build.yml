@@ -1,9 +1,14 @@
 name: build
 
 on:
-  push:
-    tags:
-      - 'v*'
+  schedule:
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+    inputs:
+      clean_cache:
+        description: 'Clear caches'
+        required: false
+        type: boolean
 
 permissions:
   contents: write
